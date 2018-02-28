@@ -1026,13 +1026,13 @@
 /* Banner */
 
 	#banner {
-		background-image:url(../images/fox2.jpg);
+		background-image:url(../images/fox2nobutton.jpg);
 		background-position: center center;
 		background-size: cover;
 		color: #ffffff;
-		padding: 30em 0em 20em;
+		padding: 31.75em 0em 20em;
 		text-align: center;
-		margin-bottom: 0.5em;
+		margin-bottom: 0.1em;
 	}
 
 		#banner :last-child {
