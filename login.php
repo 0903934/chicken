@@ -36,7 +36,7 @@ if (isset($_POST['username'])){
         $_SESSION['username'] = $user_name;//Initializing session
         // Redirect user to index page
 
-        printf("I got here 1");
+        // printf("I got here 1");
 
         header("Location: dashboard.php"); //Redirecting to other page
     }else{
