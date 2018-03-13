@@ -33,7 +33,7 @@ if (isset($_REQUEST['username'])) {
     if ($result) {
         echo "<div class='form'>
             <h3>You are registered successfully.</h3>
-            <br/>Click here to <a href='login.php'>Login</a></div>";
+            <br/>Click here to <a href='login.html'>Login</a></div>";
 
         //  printf("Insert: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));
             mysqli_stmt_close($stmt);
