@@ -45,6 +45,7 @@ if (isset($_POST['username'])){
 <br/>Click here to <a href='login.php'>Login</a></div>";
     }
 }
+
 else{
     ?>
     <div class="form">
@@ -57,6 +58,9 @@ else{
         <p>Not registered yet? <a href='register.html'>Register Here</a></p>
         <p>Back to the Home Page <a href='index.html'>Home</a></p>
     </div>
+
 <?php } ?>
+
+
 </body>
 </html>
