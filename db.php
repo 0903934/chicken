@@ -11,7 +11,7 @@
 //$host = '127.0.0.1';
 //$username = 'root';
 //$password = '';
-//$db_name = 'predatordetection';
+$db_name = 'predatordetection';
 
 //Establishes the connection
 //$conn = mysqli_init();
@@ -47,12 +47,19 @@
         $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
     }
     //$link = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword, $connectstr_dbname);
-    $link = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword, 'predatordetection');
-    if (!$link) {
-        // return boolean false for the failed connection
+    //$link = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword, 'predatordetection');
+
+    //Establishes the connection
+    $conn = mysqli_init();
+    mysqli_real_connect($conn, $connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword, $db_name, 3306); 
+    if (mysqli_connect_errno($conn)) {
         die('Failed to connect to MySQL: '.mysqli_connect_error());
-        return false;
     }
+    
+    //if (!$link) {
+        // return boolean false for the failed connection
+    //    return false;
+    //}
     // return the DB connection
-    return $link;
+    //return $link;
 //}
