@@ -31,8 +31,8 @@
 /** Method for connecting the the Database. returns the connection if successful or false if not
  * @return bool|mysqli: returns the DB link if successful of false if not
  */
-function dbConnect()
-{
+//function dbConnect()
+//{
     $connectstr_dbhost = '';
     $connectstr_dbname = '';
     $connectstr_dbusername = '';
@@ -55,4 +55,4 @@ function dbConnect()
     }
     // return the DB connection
     return $link;
-}
+//}
