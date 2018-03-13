@@ -50,6 +50,7 @@ function dbConnect()
     $link = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword, 'predatordetection');
     if (!$link) {
         // return boolean false for the failed connection
+        die('Failed to connect to MySQL: '.mysqli_connect_error());
         return false;
     }
     // return the DB connection
