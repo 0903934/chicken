@@ -13,7 +13,7 @@ include("auth.php");
 <head>
     <meta charset="utf-8">
     <title>Dashboard - Secured Page</title>
-    <link rel="stylesheet" href="css/style4registrationloginforms.css" />
+    <link rel="stylesheet" href="../css/style4registrationloginforms.css" />
 </head>
 
 <body>
@@ -22,7 +22,7 @@ include("auth.php");
     <p>Welcome <?php echo $_SESSION['username']; ?>!</p>
     <p>Dashboard</p>
     <p>This is a secure area.</p>
-    <p><a href="index.html">Home</a></p>
+    <p><a href="../index.html">Home</a></p>
     <a href="logout.php">Logout</a>
 </div>
 
