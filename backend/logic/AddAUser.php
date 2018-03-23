@@ -1,10 +1,7 @@
 <?php
 
-
-
 //Establish connection using connection details maintained in a seperate php file- db.php
 require('db.php');
-
 
 // If form submitted, insert values into the database.
 if (isset($_REQUEST['username'])) {
@@ -38,7 +35,7 @@ if (isset($_REQUEST['username'])) {
     if ($rows == 1) {
         echo "<div class='form'>
             <h3>A User with the Username already exist.</h3>
-            <br/>Try a different Username. Thank You <a href='../register.html'>Register</a></div>";
+            <br/>Try a different Username. Thank You <a href='../../register.html'>Register</a></div>";
 
     } elseif ($rows == 0) {
         $stmt = mysqli_prepare($conn, "INSERT INTO users (UserName, Password, FirstName, LastName, Email, UserType) VALUES (?, ?, ?, ?, ?, ?)");
@@ -48,7 +45,7 @@ if (isset($_REQUEST['username'])) {
         if ($result) {
             echo "<div class='form'>
             <h3>You are registered successfully.</h3>
-            <br/>Click here to <a href='../login.html'>Login</a></div>";
+            <br/>Click here to <a href='../../login.html'>Login</a></div>";
 
             //  printf("Insert: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));
             mysqli_stmt_close($stmt);
@@ -65,7 +62,7 @@ if (isset($_REQUEST['username'])) {
         <div class="form">
             <h1>Registration</h1>
             <form name="registration" action="AddAUser.php" method="post">
-                <input type="text" username="username" placeholder="Username" required/>
+                <input type="text" name="username" placeholder="Username" required/>
                 <input type="password" name="password" placeholder="Password" required/>
                 <input type="email" name="email" placeholder="Email" required/>
 

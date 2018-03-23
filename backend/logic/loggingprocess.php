@@ -2,7 +2,6 @@
 require('db.php');
 
 session_start();
-
 // If form submitted, insert values into the database.
 if (isset($_POST['username'])){
     // removes backslashes
@@ -27,19 +26,20 @@ if (isset($_POST['username'])){
 
         //Do verification here.
         if(password_verify($user_password, $HashedPassword)){
+           echo "successful";
             $_SESSION['username'] = $user_name;//Initializing session
             // Redirect user to index page
-            // printf("I got here 1");
-            header("Location: C:\Users\Temple\PhpstormProjects\chicken\backend\dashboard.php"); //Redirecting to other page
+            header("Location: dashboard.php");
+
         }
         else{
             echo "<div class='form'>
             <h3>Username/password is incorrect.</h3>
-            <br/>Click here to <a href='../login.html'>Login</a></div>";
+            <br/>Click here to <a href='../../login.html'>Login</a></div>";
         }
     }
 else{
     echo "No User found";
-    return false;
+
 }
 }
