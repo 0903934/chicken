@@ -1,7 +1,9 @@
+
+
 <?php
 
-require('db.php');
-include("auth.php");
+require($_SERVER["DOCUMENT_ROOT"]."/backend/resources/db.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/backend/resources/auth.php");
 
 ?>
 
@@ -23,7 +25,7 @@ include("auth.php");
     <p>Dashboard</p>
     <p>This is a secure area.</p>
     <p><a href="../../index.html">Home</a></p>
-    <a href="logout.php">Logout</a>
+    <a href="../logic/logout.php">Logout</a>
 </div>
 
 </body>

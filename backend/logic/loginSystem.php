@@ -1,5 +1,8 @@
+
 <?php
-require('db.php');
+
+require($_SERVER["DOCUMENT_ROOT"] . "/backend/resources/functions.php");
+require($_SERVER["DOCUMENT_ROOT"]."/backend/resources/db.php");
 
 session_start();
 // If form submitted, insert values into the database.
@@ -28,9 +31,8 @@ if (isset($_POST['username'])){
         if(password_verify($user_password, $HashedPassword)){
            echo "successful";
             $_SESSION['username'] = $user_name;//Initializing session
-            // Redirect user to index page
-            header("Location: dashboard.php");
-
+            // DashBoard
+            Redirect_to("/chicken/backend/pages/dashboard.php");
         }
         else{
             echo "<div class='form'>

@@ -1,9 +1,12 @@
 <?php
 
-session_start();
-// Destroying All Sessions
-if(session_destroy())
-{
+// session_start();
+
 // Redirecting To Home Page
-    header("Location: ../../login.html");
-}
+header("Location: ../../login.html");
+
+session_unset();
+
+session_destroy();
+
+exit();

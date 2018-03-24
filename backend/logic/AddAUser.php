@@ -1,8 +1,9 @@
 <?php
+//Require Database Connection.
+require($_SERVER["DOCUMENT_ROOT"] . "/backend/resources/db.php");
+?>
 
-//Establish connection using connection details maintained in a seperate php file- db.php
-require('db.php');
-
+<?php
 // If form submitted, insert values into the database.
 if (isset($_REQUEST['username'])) {
     // removes backslashes
@@ -47,7 +48,6 @@ if (isset($_REQUEST['username'])) {
             <h3>You are registered successfully.</h3>
             <br/>Click here to <a href='../../login.html'>Login</a></div>";
 
-            //  printf("Insert: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));
             mysqli_stmt_close($stmt);
 
             // Close the connection

@@ -1,7 +1,7 @@
 <?php
 
 //Establish connection using connection details maintained in a seperate php file-db.php
-require('db.php');
+require($_SERVER["DOCUMENT_ROOT"]."/backend/resources/db.php");
 
 //THERE IS NEED TO REPLACE THIS "DIRECTLY ENTERED" INPUT WITH CODE TO GET INPUTS FROM THE ADMIN PAGE WHEN A CAMERA IS ADDED.
 //AN ADMIN SHOULD BE ABLE TO ADD A NEW CAMERA WITH DETAILS(CameraId-PRIMARY KEY, Location, IpAddress)
