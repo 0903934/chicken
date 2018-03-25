@@ -52,7 +52,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/backend/resources/auth.php");
 
         <!--Beginning of main  area -->
         <div class="col-sm-10">
-            <h1>Users</h1>
+            <h1>Detection Report</h1>
             <!-- Outputting all the contents in the Users table -->
             <div class="table-responsive">
                 <table class="table table-striped teble-hover">
