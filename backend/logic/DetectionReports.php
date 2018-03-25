@@ -1,7 +1,7 @@
 <?php
 
 //Establish connection using connection details maintained in a seperate php file-db.php
-require('db.php');
+require($_SERVER["DOCUMENT_ROOT"]."/backend/resources/db.php");
 
 //THE DETECTION SYSTEM WILL BE COMMUNICATING TO THE CAMERA REPORT TABLE THROUGH THIS CODE.
 //CAMERA_ID IS A FOREIGN KEY ON THIS TABLE SO IF THE CAMERA_ID DOES NOT EXIST IN THE cameras TABLE IT WILL NOT INSERT.

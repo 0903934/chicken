@@ -1214,3 +1214,56 @@
 		.grid-demo .row.flush > div:last-child span {
 			border-radius: 0 4px 4px 0;
 		}
+
+
+
+		/* MY Group PROJECT      */
+
+@import "fonts.css";
+
+main article img{
+	width: 100%
+}
+
+#experimentImage1{
+	margin: 6px 0 3px 0;
+	width: 100%;
+}
+
+#experimentImage2{
+	margin: 6px 0 3px 0;
+	width: 100%;
+}
+
+#experimentImage3{
+	margin: 6px 0 3px 0;
+	width: 100%;
+}
+
+#experimentImage4{
+	margin: 6px 0 3px 0;
+	width: 100%;
+}
+
+/*Header Information */
+header {
+	background-color: #00b6a8;
+}
+header h1{
+	font-weight: 700;
+	font-family: 'Righteous', cursive;
+	margin-bottom: 0;
+}
+header h2{
+	margin-top: 0;
+}
+/*End of Header*/
+
+/*Start of Footer*/
+footer{
+	background-color: #00b6a8;
+}
+footer section h3{
+	margin-top: 10px;
+}
+/*End of Footer*/
