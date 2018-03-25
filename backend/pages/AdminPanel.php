@@ -25,11 +25,18 @@ session_start();
 
 </head>
 
-<!-- jQuery first, then Popper.js, then Bootstrap JavaScript Functions required by most of BootStraps Components.-->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- Connecting to BootStrap CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+<!-- Unable to save the local library for this link Popper.js-->
+<!-- <script src="https://cdnjs.cloudfare.com/ajax/libs/pooper.js/1.12.9/umd/popper.min.js"></script> -->
+
+<!-- Had to use this link instead to save the local library for this Popper.js link -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 <body>
 
