@@ -21,8 +21,6 @@ if  ($method == 'POST') {
     // get the data from the post data
     http_response_code(200);
     echo '{"data": {"Debug": "Data Sent"}, "echo": %d}', json_encode($_REQUEST);
-    // Close the connection
-    mysqli_close($conn);
     exit(0);
 //    if (isset($_POST['CameraId'])) {
 //        $camera_id = $_REQUEST["CameraId"];
