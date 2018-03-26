@@ -13,14 +13,16 @@ include_once "../backend/resources/db.php";
 // set header content type to be JSON
 header('Content-Type: application/json; charset=utf-8');
 
+http_response_code(200);
+echo '{"data": {"Debug": "Data Sent"}, "echo": %d}', json_encode($_POST);
+
 // get the method of the request (GET / POST etc.)
 $method = $_SERVER['REQUEST_METHOD'];
+
 
 if  ($method == 'POST') {
     // post data to db; not going to authenticate yet. need to add strip tags and mysql security
     // get the data from the post data
-    http_response_code(200);
-    echo '{"data": {"Debug": "Data Sent"}, "echo": %d}', json_encode($_REQUEST);
     exit(0);
 //    if (isset($_POST['CameraId'])) {
 //        $camera_id = $_REQUEST["CameraId"];
