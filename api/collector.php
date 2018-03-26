@@ -34,9 +34,9 @@ if  ($method == 'POST') {
         $predator_image_link = $_POST['PredatorImage'];
         $detection_time = $_POST['DetectionTime'];
         // convert to datetime object
-        $detection_time = new DateTime($detection_time);
+        $detection_time = strtotime($detection_time);
 
-        if ($stmt = $conn->prepare("INSERT INTO  detectionreport (CameraId, PredatorName, DetectionAccuracy, PredatorImage, DetectionTime) VALUES (?, ?, ?, ?)")) {
+        if ($stmt = $conn->prepare("INSERT INTO  detectionreport (CameraId, PredatorName, DetectionAccuracy, PredatorImage, DetectionTime) VALUES (?, ?, ?, ?, ?)")) {
             $stmt->bind_param("isiss", $camera_id, $predator_name, $detection_accuracy, $predator_image_link, $detection_time);
             if ($stmt->execute()) {
                 // sql executed successfully
