@@ -26,16 +26,16 @@ if  ($method == 'POST') {
     $_POST = json_decode($rest_json, true);
 
     if (isset($_POST['CameraId'])) {
-        $camera_id = $_REQUEST["CameraId"];
-        $predator_name = $_REQUEST["PredatorName"];
-        $detection_accuracy = $_REQUEST["DetectionAccuracy"];
-        $predator_image_link = $_REQUEST["PredatorImage"];
-        $detection_time = $_REQUEST["DetectionTime"];
-        // convert to datetime object
-        $detection_time = new DateTime($detection_time);
+        $camera_id = $_POST["CameraId"];
+        $predator_name = $_POST["PredatorName"];
+        $detection_accuracy = $_POST["DetectionAccuracy"];
+        $predator_image_link = $_POST["PredatorImage"];
+//        $detection_time = $_POST["DetectionTime"];
+//        // convert to datetime object
+//        $detection_time = new DateTime($detection_time);
 
-        if ($stmt = mysqli_prepare($conn, "INSERT INTO  detectionreport (CameraId, PredatorName, DetectionAccuracy, PredatorImage, DetectionTime) VALUES (?, ?, ?, ?, ?)")) {
-            mysqli_stmt_bind_param($stmt, 'isiss', $camera_id, $predator_name, $detection_accuracy, $predator_image_link, $detection_time);
+        if ($stmt = mysqli_prepare($conn, "INSERT INTO  detectionreport (CameraId, PredatorName, DetectionAccuracy, PredatorImage) VALUES (?, ?, ?, ?)")) {
+            mysqli_stmt_bind_param($stmt, 'isiss', $camera_id, $predator_name, $detection_accuracy, $predator_image_link);
             if ($stmt->execute()) {
                 // sql executed successfully
                 // return good
