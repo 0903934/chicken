@@ -47,7 +47,7 @@ if  ($method == 'POST') {
             } else {
                 // DB insert failed; retunr error
                 http_response_code(500);
-                echo '{"data": {"error": "Data entry failed"}}';
+                echo '{"data": {"error": "Data entry failed %d"}}', $stmt->error;
                 // Close the connection
                 mysqli_close($conn);
                 exit(0);
