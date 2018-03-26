@@ -26,9 +26,9 @@ if  ($method == 'POST') {
     $_POST = json_decode($rest_json, true);
 
     if (isset($_POST['CameraId'])) {
-        $camera_id = $_POST['CameraId'];
+        $camera_id = (int)$_POST['CameraId'];
         $predator_name = $_POST['PredatorName'];
-        $detection_accuracy = $_POST['DetectionAccuracy'];
+        $detection_accuracy = (int)$_POST['DetectionAccuracy'];
         $predator_image_link = $_POST['PredatorImage'];
 //        $detection_time = $_POST['DetectionTime'];
 //        // convert to datetime object
