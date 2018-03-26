@@ -26,11 +26,11 @@ if  ($method == 'POST') {
     $_POST = json_decode($rest_json, true);
 
     if (isset($_POST['CameraId'])) {
-        $camera_id = $_POST["CameraId"];
-        $predator_name = $_POST["PredatorName"];
-        $detection_accuracy = $_POST["DetectionAccuracy"];
-        $predator_image_link = $_POST["PredatorImage"];
-//        $detection_time = $_POST["DetectionTime"];
+        $camera_id = $_POST['CameraId'];
+        $predator_name = $_POST['PredatorName'];
+        $detection_accuracy = $_POST['DetectionAccuracy'];
+        $predator_image_link = $_POST['PredatorImage'];
+//        $detection_time = $_POST['DetectionTime'];
 //        // convert to datetime object
 //        $detection_time = new DateTime($detection_time);
 
@@ -47,7 +47,7 @@ if  ($method == 'POST') {
             } else {
                 // DB insert failed; retunr error
                 http_response_code(500);
-                echo '{"data": {"error": "Data entry failed %d"}}', $stmt->error;
+                echo '{"data": {"error": "Data entry failed ' .$stmt->error . '"}}';
                 // Close the connection
                 mysqli_close($conn);
                 exit(0);
