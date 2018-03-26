@@ -11,7 +11,7 @@
 //include_once "../backend/resources/db.php";
 
 // set header content type to be JSON
-header('Content-Type: application/json; charset=utf-8');
+//header('Content-Type: application/json; charset=utf-8');
 
 http_response_code(200);
 print_r($_POST);
