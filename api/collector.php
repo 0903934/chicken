@@ -19,7 +19,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 if  ($method == 'POST') {
     // post data to db; not going to authenticate yet. need to add strip tags and mysql security
     // get the data from the post data
-    if (isset($_POST['CameraId'])) {
+    if (isset($_REQUEST['CameraId'])) {
         $camera_id = $_REQUEST["CameraId"];
         $predator_name = $_REQUEST["PredatorName"];
         $detection_accuracy = $_REQUEST["DetectionAccuracy"];
