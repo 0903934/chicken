@@ -14,8 +14,7 @@
 header('Content-Type: application/json; charset=utf-8');
 
 http_response_code(200);
-$json = json_decode($_POST, true);
-print_r($json);
+print_r($_POST);
 exit(0);
 
 // get the method of the request (GET / POST etc.)
