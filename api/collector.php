@@ -13,8 +13,15 @@
 // set header content type to be JSON
 header('Content-Type: application/json; charset=utf-8');
 
+//Attempt to decode the incoming RAW post data from JSON.
+$decoded = json_decode($_POST, true);
+//If json_decode failed, the JSON is invalid.
+if(!is_array($decoded)){
+    echo '{error:Received content contained invalid JSON!}';
+    exit(0);
+}
 http_response_code(200);
-print_r($_POST);
+print_r($decoded);
 exit(0);
 
 // get the method of the request (GET / POST etc.)
