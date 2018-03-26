@@ -32,7 +32,7 @@ if (isset($_POST['username'])){
            echo "successful";
             $_SESSION['username'] = $user_name;//Initializing session
             // DashBoard
-            Redirect_to("/backend/pages/dashboard.php");
+            Redirect_to("../../backend/pages/dashboard.php");
         }
         else{
             echo "<div class='form'>
