@@ -47,7 +47,7 @@ if  ($method == 'POST') {
             } else {
                 // DB insert failed; retunr error
                 http_response_code(500);
-                echo '{"data": {"error": "Data entry failed ' .$stmt->error . '", "CameraId":' . $camera_id . ' , "PredatorName":' . $predator_name . ' }}';
+                echo '{"data": {"error": "Data entry failed ' .$stmt->error . '", "CameraId":' . $camera_id . ' , "PredatorName":"' . $predator_name . '", "DetectionAccuracy":' . $detection_accuracy . ', "PredatorImage":"' . $predator_image_link . '"}}';
                 // Close the connection
                 mysqli_close($conn);
                 exit(0);
