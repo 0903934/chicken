@@ -31,6 +31,8 @@ if  ($method == 'POST') {
         $detection_accuracy = $_REQUEST["DetectionAccuracy"];
         $predator_image_link = $_REQUEST["PredatorImage"];
         $detection_time = $_REQUEST["DetectionTime"];
+        // convert to datetime object
+        $detection_time = new DateTime($detection_time);
 
         if ($stmt = mysqli_prepare($conn, "INSERT INTO  detectionreport (CameraId, PredatorName, DetectionAccuracy, PredatorImage, DetectionTime) VALUES (?, ?, ?, ?, ?)")) {
             mysqli_stmt_bind_param($stmt, 'isiss', $camera_id, $predator_name, $detection_accuracy, $predator_image_link, $detection_time);
