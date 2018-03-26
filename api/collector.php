@@ -14,7 +14,7 @@ include_once "../backend/resources/db.php";
 header('Content-Type: application/json; charset=utf-8');
 
 http_response_code(200);
-echo '{"data": {"Debug": "Data Sent"}, "echo": %d}', json_encode($_POST);
+echo json_encode($_POST);
 
 // get the method of the request (GET / POST etc.)
 $method = $_SERVER['REQUEST_METHOD'];
