@@ -33,8 +33,8 @@ if  ($method == 'POST') {
         $detection_accuracy = $detection_accuracy_raw;
         $predator_image_link = $_POST['PredatorImage'];
         $detection_time = $_POST['DetectionTime'];
-//        // convert to datetime object
-//        $detection_time = new DateTime($detection_time);
+        // convert to datetime object
+        $detection_time = new DateTime($detection_time);
 
         if ($stmt = $conn->prepare("INSERT INTO  detectionreport (CameraId, PredatorName, DetectionAccuracy, PredatorImage, DetectionTime) VALUES (?, ?, ?, ?)")) {
             $stmt->bind_param("isiss", $camera_id, $predator_name, $detection_accuracy, $predator_image_link, $detection_time);
@@ -57,7 +57,7 @@ if  ($method == 'POST') {
         } else {
             // db entry failed
             http_response_code(500);
-            echo '{"data": {"error": %d}}', $stmt->error;
+            echo '{"data": {"error": ' . $stmt->error . ' }}';
             // Close the connection
             mysqli_close($conn);
             exit(0);
