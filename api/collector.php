@@ -8,7 +8,7 @@
  * Very simple API interface to collect data from the remote node
  */
 
-//include_once "../backend/resources/db.php";
+include_once "../backend/resources/db.php";
 
 // set header content type to be JSON
 header('Content-Type: application/json; charset=utf-8');
@@ -55,7 +55,7 @@ if  ($method == 'POST') {
         } else {
             // db entry failed
             http_response_code(500);
-            echo '{"data": {"error": "DB Prepare failed"}}';
+            echo '{"data": {"error": %d}}', $stmt->error;
             // Close the connection
             mysqli_close($conn);
             exit(0);
