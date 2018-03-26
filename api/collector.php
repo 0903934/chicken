@@ -38,7 +38,7 @@ if  ($method == 'POST') {
                 // sql executed successfully
                 // return good
                 http_response_code(200);
-                echo '{"data": {"Success": "Data Sent"}, "echo": %d}', json_encode($_REQUEST);
+                echo '{"data": {"Success": "Data Sent"}, "echo": %d}', print_r($_POST);
                 // Close the connection
                 mysqli_close($conn);
                 exit(0);
