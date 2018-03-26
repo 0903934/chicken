@@ -52,6 +52,13 @@ if  ($method == 'POST') {
                 mysqli_close($conn);
                 exit(0);
             }
+        } else {
+            // db entry failed
+            http_response_code(500);
+            echo '{"data": {"error": "DB Prepare failed"}}';
+            // Close the connection
+            mysqli_close($conn);
+            exit(0);
         }
     } else {
         // DB insert failed; retunr error
