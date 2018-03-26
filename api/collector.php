@@ -14,7 +14,8 @@ include_once "../backend/resources/db.php";
 //header('Content-Type: application/json; charset=utf-8');
 
 http_response_code(200);
-echo print_r($_POST);
+$json = json_decode($_POST, true);
+echo print_r($json);
 
 // get the method of the request (GET / POST etc.)
 $method = $_SERVER['REQUEST_METHOD'];
