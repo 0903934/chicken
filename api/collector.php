@@ -42,7 +42,7 @@ if  ($method == 'POST') {
                 // sql executed successfully
                 // return good
                 http_response_code(200);
-                echo '{"data": {"Success": "Data Sent", "echo":"{"CameraId":' . $camera_id . ' , "PredatorName":"' . $predator_name . '", "DetectionAccuracy":' . $detection_accuracy . ', "PredatorImage":"' . $predator_image_link . '"}}}';
+                echo '{"data": {"Success": "Data Sent", "echo":{"CameraId":' . $camera_id . ' , "PredatorName":"' . $predator_name . '", "DetectionAccuracy":' . $detection_accuracy . ', "PredatorImage":"' . $predator_image_link . '"}}}';
                 // Close the connection
                 mysqli_close($conn);
                 exit(0);
