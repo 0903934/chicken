@@ -1,25 +1,87 @@
 <!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="utf-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="css/style4registrationloginforms.css" />
-</head>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Log In</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+	</head>
+	<body>
 
-<body>
+		<!-- Header -->
+			<header id="header">
+				<h1><a href="index.html">Foxy Snap</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="how_it_works.html">How it Works</a></li>
+						<li><a href="contact_us.html">Contact Us</a></li>
+						<li><a href="login.html" class="button special">Login</a></li>
+						<li><a href="register.html" class="button special">Register</a></li>
+					</ul>
+				</nav>
+			</header>
 
-<div class="form">
-    <h1>Log In</h1>
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="container">
+
+					
+
+					<section id="three" class="wrapper style3 special">
+				<div class="container">
+					<header class="major">
+						<h2>Login</h2>
+						<p></p>
+					</header>
+				</div>
+				<div class="container 50%">
+					<div class="form">
+    
     <form action="backend/logic/loginSystem.php" method="post" name="login">
+		<div class="row uniform">
+		<div class="6u 12u$(small)">
         <input type="text" name="username" placeholder="Username" required />
+		</div>
+		<div class="6u 12u$(small)">
         <input type="password" name="password" placeholder="Password" required />
-        <input name="submit" type="submit" value="Login" />
+		</div>
+			<div class="12u$">
+			<ul class="actions">
+									
+									<input type="submit" name="submit" class="special big" value="Login"/>
+								</ul>
+			</div>
+			<div class="12u$">
+			<ul class="actions">
+									
+									
+				<p> <a href="register.html" class="button special big">Register Here!</a></p>
+								</ul>
+			</div>
+			
+			</form>
     </form>
-    <p>Not registered yet? <a href='register.html'>Register Here</a></p>
-    <p>Back to the Home Page <a href='index.html'>Home</a></p>
+    
+    
 </div>
+				</div>
+			</section>
 
+	</body>
+				
+</script>
 
-</body>
 </html>
