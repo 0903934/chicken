@@ -32,17 +32,17 @@ if  ($method == 'POST') {
         $detection_accuracy_raw = $_POST['DetectionAccuracy'];
         $detection_accuracy = $detection_accuracy_raw;
         $predator_image_link = $_POST['PredatorImage'];
-//        $detection_time = $_POST['DetectionTime'];
+        $detection_time = $_POST['DetectionTime'];
 //        // convert to datetime object
 //        $detection_time = new DateTime($detection_time);
 
-        if ($stmt = $conn->prepare("INSERT INTO  detectionreport (CameraId, PredatorName, DetectionAccuracy, PredatorImage) VALUES (?, ?, ?, ?)")) {
-            $stmt->bind_param("isis", $camera_id, $predator_name, $detection_accuracy, $predator_image_link);
+        if ($stmt = $conn->prepare("INSERT INTO  detectionreport (CameraId, PredatorName, DetectionAccuracy, PredatorImage, DetectionTime) VALUES (?, ?, ?, ?)")) {
+            $stmt->bind_param("isiss", $camera_id, $predator_name, $detection_accuracy, $predator_image_link, $detection_time);
             if ($stmt->execute()) {
                 // sql executed successfully
                 // return good
                 http_response_code(200);
-                echo '{"data": {"Success": "Data Sent"}, "echo": %d}', print_r($_POST);
+                echo '{"data": {"Success": "Data Sent"}, "echo":"' . print_r($_POST) . '"}';
                 // Close the connection
                 mysqli_close($conn);
                 exit(0);
