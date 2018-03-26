@@ -37,7 +37,7 @@ if  ($method == 'POST') {
 //        $detection_time = new DateTime($detection_time);
 
         if ($stmt = $conn->prepare("INSERT INTO  detectionreport (CameraId, PredatorName, DetectionAccuracy, PredatorImage) VALUES (?, ?, ?, ?)")) {
-            $stmt->bind_param("ssissis", $camera_id, $predator_name, $detection_accuracy, $predator_image_link);
+            $stmt->bind_param("isis", $camera_id, $predator_name, $detection_accuracy, $predator_image_link);
             if ($stmt->execute()) {
                 // sql executed successfully
                 // return good
