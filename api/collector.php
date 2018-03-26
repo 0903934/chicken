@@ -27,16 +27,23 @@ if  ($method == 'POST') {
 
     if ($stmt = mysqli_prepare($conn, "INSERT INTO  detectionreport (CameraId, PredatorName, DetectionAccuracy, PredatorImage, DetectionTime) VALUES (?, ?, ?, ?, ?)")) {
         mysqli_stmt_bind_param($stmt, 'isiss', $camera_id, $predator_name, $detection_accuracy, $predator_image_link, $detection_time);
-        mysqli_stmt_execute($stmt);
-        printf("Insert: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));
-        mysqli_stmt_close($stmt);
+        if ($stmt->execute()) {
+            // sql executed successfully
+                // return good
+                http_response_code(200);
+                echo '{"data": {"Success": "Data Sent"}}';
+                // Close the connection
+                mysqli_close($conn);
+                exit(0);
+            } else {
+            // DB insert failed; retunr error
+            http_response_code(500);
+            echo '{"data": {"error": "Data entry failed"}}';
+            // Close the connection
+            mysqli_close($conn);
+            exit(0);
+        }
     }
-    // Close the connection
-    mysqli_close($conn);
-    // return good
-    http_response_code(200);
-    echo '{"data": {"Success": "Data Sent"}}';
-    exit(0);
 } else {
     // reply 404 for GETs currently
     http_response_code(404);
