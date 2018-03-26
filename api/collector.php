@@ -8,23 +8,24 @@
  * Very simple API interface to collect data from the remote node
  */
 
-include_once "../backend/resources/db.php";
+//include_once "../backend/resources/db.php";
 
 // set header content type to be JSON
-//header('Content-Type: application/json; charset=utf-8');
+header('Content-Type: application/json; charset=utf-8');
 
 http_response_code(200);
 $json = json_decode($_POST, true);
 echo print_r($json);
+exit(0);
 
 // get the method of the request (GET / POST etc.)
-$method = $_SERVER['REQUEST_METHOD'];
+//$method = $_SERVER['REQUEST_METHOD'];
 
-
-if  ($method == 'POST') {
-    // post data to db; not going to authenticate yet. need to add strip tags and mysql security
-    // get the data from the post data
-    exit(0);
+//
+//if  ($method == 'POST') {
+//    // post data to db; not going to authenticate yet. need to add strip tags and mysql security
+//    // get the data from the post data
+//    exit(0);
 //    if (isset($_POST['CameraId'])) {
 //        $camera_id = $_REQUEST["CameraId"];
 //        $predator_name = $_REQUEST["PredatorName"];
@@ -59,9 +60,9 @@ if  ($method == 'POST') {
 //        mysqli_close($conn);
 //        exit(0);
 //    }
-} else {
-    // reply 404 for GETs currently
-    http_response_code(404);
-    echo '{"data": {"error": "Content not Found"}}';
-    exit(0);
-}
+//} else {
+//    // reply 404 for GETs currently
+//    http_response_code(404);
+//    echo '{"data": {"error": "Content not Found"}}';
+//    exit(0);
+//}
