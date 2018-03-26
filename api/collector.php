@@ -11,10 +11,10 @@
 include_once "../backend/resources/db.php";
 
 // set header content type to be JSON
-header('Content-Type: application/json; charset=utf-8');
+//header('Content-Type: application/json; charset=utf-8');
 
 http_response_code(200);
-echo json_encode($_POST);
+echo printf($_POST);
 
 // get the method of the request (GET / POST etc.)
 $method = $_SERVER['REQUEST_METHOD'];
