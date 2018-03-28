@@ -15,23 +15,32 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 if  ($method == 'POST') {
     // not going to authenticate yet. need to add strip tags and mysql security
+    // use form data image for upload
+    /*
+     POST /api/image.php HTTP/1.1
+    Host: foxysnap.azurewebsites.net
+    Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+    Cache-Control: no-cache
+
+    ------WebKitFormBoundary7MA4YWxkTrZu0gW
+    Content-Disposition: form-data; name="image"; filename="chickens.jpg"
+    Content-Type: image/jpeg
+    ------WebKitFormBoundary7MA4YWxkTrZu0gW--
+     */
     // TODO: secure API
-//    if (isset($_POST['image'])){
-        $target_directory = "uploaded_images/";
-        $upload_result = fileUpload($target_directory);
-        // check the result of the upload
-        if ($upload_result['uploadOk'] == false){
-            // something went wrong, retunr the error
-            http_response_code(500);
-            echo '{"data": {"error": "Image upload failed: ' . $upload_result['error'] . '"}}';
-            exit(0);
-        }
-//    } else {
-//        // DB insert failed; retunr error
-//        http_response_code(500);
-//        echo '{"data": {"error": "Data entry failed; Required fields missing. sent' . print_r($_POST) . '"}}';
-//        exit(0);
-//    }
+    $target_directory = "uploaded_images/";
+    $upload_result = fileUpload($target_directory);
+    // check the result of the upload
+    if ($upload_result['uploadOk'] == false){
+        // something went wrong, retunr the error
+        http_response_code(500);
+        echo '{"data": {"error": "Image upload failed: ' . $upload_result['error'] . '"}}';
+        exit(0);
+    }
+    // return good
+    http_response_code(200);
+    echo '{"data": {"Success": "Image Uploaded"}}';
+    exit(0);
 } else {
     // reply 404 for GETs currently
     http_response_code(404);
