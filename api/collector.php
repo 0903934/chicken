@@ -9,7 +9,6 @@
  */
 
 include_once "../backend/resources/db.php";
-include_once "../backend/resources/FileUpload.php";
 
 // set header content type to be JSON
 header('Content-Type: application/json; charset=utf-8');
@@ -19,6 +18,7 @@ header('Content-Type: application/json; charset=utf-8');
 $method = $_SERVER['REQUEST_METHOD'];
 
 if  ($method == 'POST') {
+    // TODO: secure API
     // post data to db; not going to authenticate yet. need to add strip tags and mysql security
     // get the data from the post data
 
@@ -61,17 +61,6 @@ if  ($method == 'POST') {
             echo '{"data": {"error": ' . $stmt->error . ' }}';
             // Close the connection
             mysqli_close($conn);
-            exit(0);
-        }
-    // check to see if it is an image we are posting. Data and images will be posted seperately to save multi-part API requests
-    } elseif (isset($_POST['ImageData'])){
-        $target_directory = "uploaded_images/";
-        $upload_result = fileUpload($target_directory);
-        // check the result of the upload
-        if ($upload_result['uploadOk'] == false){
-            // something went wrong, retunr the error
-            http_response_code(500);
-            echo '{"data": {"error": "Image upload failed: ' . $upload_result['error'] . '"}}';
             exit(0);
         }
     } else {
