@@ -21,7 +21,7 @@ function fileUpload($targetDirectory){
         $uploadOk = true;
     } else {
         $uploadArray['uploadOk'] = false;
-        $uploadArray['error'] = "file_not_image";
+        $uploadArray['error'] = "file_not_image" . $target_file . "";
         $uploadArray['fileLocation'] = null;
         $uploadOk = false;
         return $uploadArray;
