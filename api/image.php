@@ -16,7 +16,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 if  ($method == 'POST') {
     // not going to authenticate yet. need to add strip tags and mysql security
     // TODO: secure API
-    if (isset($_POST['ImageData'])){
+    if (isset($_POST['image'])){
         $target_directory = "uploaded_images/";
         $upload_result = fileUpload($target_directory);
         // check the result of the upload
