@@ -9,6 +9,7 @@
  */
 
 include_once "../backend/resources/db.php";
+include_once "../backend/resources/FileUpload.php";
 
 // set header content type to be JSON
 header('Content-Type: application/json; charset=utf-8');
