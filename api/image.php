@@ -39,7 +39,7 @@ if  ($method == 'POST') {
     }
     // return good
     http_response_code(200);
-    echo '{"data": {"Success": "Image Uploaded", "location": https://foxysnap.azurewebsites.net/api/' . $upload_result['fileLocation'] . '}}';
+    echo '{"data": {"Success": "Image Uploaded", "location": "https://foxysnap.azurewebsites.net/api/' . $upload_result['fileLocation'] . '"}}';
     exit(0);
 } else {
     // reply 404 for GETs currently
