@@ -13,10 +13,10 @@
 function fileUpload($targetDirectory){
     // define array to store results
     $uploadArray = array();
-    $target_file = $targetDirectory . basename($_FILES["fileToUpload"]["name"]);
+    $target_file = $targetDirectory . basename($_FILES["image"]["name"]);
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
     // Check if image file is a actual image or fake image
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    $check = getimagesize($_FILES["image"]["tmp_name"]);
     if($check != False) {
         $uploadOk = true;
     } else {
@@ -35,7 +35,7 @@ function fileUpload($targetDirectory){
         return $uploadArray;
     }
     // Check file size; limit to 6MB
-    if ($_FILES["fileToUpload"]["size"] > 6000000) {
+    if ($_FILES["image"]["size"] > 6000000) {
         $uploadArray['uploadOk'] = false;
         $uploadArray['error'] = "file_size";
         $uploadArray['fileLocation'] = null;
@@ -60,10 +60,10 @@ function fileUpload($targetDirectory){
         return $uploadArray;
         // if everything is ok, try to upload file
     } else {
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
             $uploadArray['uploadOk'] = true;
             $uploadArray['error'] = null;
-            $uploadArray['fileLocation'] = $targetDirectory . basename( $_FILES["fileToUpload"]["name"]);
+            $uploadArray['fileLocation'] = $targetDirectory . basename( $_FILES["image"]["name"]);
             return $uploadArray;
         } else {
             $uploadArray['uploadOk'] = false;
