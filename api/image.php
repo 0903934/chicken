@@ -29,7 +29,7 @@ if  ($method == 'POST') {
     } else {
         // DB insert failed; retunr error
         http_response_code(500);
-        echo '{"data": {"error": "Data entry failed; Required fields missing"}}';
+        echo '{"data": {"error": "Data entry failed; Required fields missing. sent' . print_r($_POST) . '"}}';
         exit(0);
     }
 } else {
