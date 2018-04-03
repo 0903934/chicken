@@ -113,7 +113,7 @@ session_start();
                         <td><?php echo $CameraId; ?> </td>
                         <td><?php echo $PredatorName ?> </td>
                         <td><?php echo $DetectionAccuracy ?> </td>
-                        <td><?php echo $PredatorImage ?> </td>
+                        <td><?php echo "<a href='". $PredatorImage ."'>Link</a>" ?> </td>
                         <td><?php echo $DetectionTime ?> </td>
                     </tr>
 
