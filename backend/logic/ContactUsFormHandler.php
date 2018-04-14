@@ -66,6 +66,9 @@ if(isset($_REQUEST['Submit'])){
                                <p> ".$Name. " sent us the message below: <br>
                                 ".$Message. "
                                </p>
+                               <p> You can reach " .$Name. " with the email below: <br>
+                                ".$Email. "
+                               </p>
                                <p>Click here to get to our homepage - <a  href='".$base_url."index.html'>Foxy Snap</a>
                                <p>Best Regards,<br/>Foxy Snap.</p> ";
 

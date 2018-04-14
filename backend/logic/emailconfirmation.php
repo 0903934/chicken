@@ -31,11 +31,10 @@ else{
     //NB, that if no conn is open, mysqli_real_escape_string() will return an empty string!.Triggering Validation 1
     $token = mysqli_real_escape_string($conn, $token);
 
-    $Query="SELECT * FROM users WHERE Email = '$Email' AND token='$token' AND emailactivation='0'";
+    $Query="SELECT Email FROM users WHERE Email = '$Email' AND token='$token'";
     $result= mysqli_query($conn, $Query);
     if($DataRow=mysqli_fetch_assoc($result)){
             $AccountToActivate = $DataRow['Email'];
-            global $conn;
             $UpdateQuery="UPDATE users SET emailactivation='1', token='' WHERE Email= '$AccountToActivate'";
             $UpdateResult= mysqli_query($conn, $UpdateQuery);
             echo "<div class='form'>
@@ -44,7 +43,6 @@ else{
             </div>";
         }
         else{
-            echo "OOPS! There was a problem. Try again.";
             Redirect_to('../../index.html');
         }
     }
