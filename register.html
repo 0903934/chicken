@@ -72,10 +72,9 @@
                                     <input type="text" name="lastname" placeholder="Last Name" required />
                                 </div>
                                 <div class="12u$">
-                                    <ul class="actions">
-
+                                    <div class="actions">
                                         <input type="submit" name="submit" class="special big" value="Register"/>
-                                    </ul>
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -89,9 +88,9 @@
     var errors =[];
     if(form.password.value == "") {
         errors.push("Error: Password is empty.");
-           }
-    else if(form.password.value !== form.confirm_password.value){
-        errors.push("Error: Passwords dont match!");
+	}
+    else if(form.password.value != form.confirm_password.value){
+        errors.push("Error: Passwords don't match!");
     }
     if(errors.length > 0){
         var msg = "ERRORS:\n\n";

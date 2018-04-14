@@ -31,22 +31,29 @@ if (isset($_POST['username'])){
         $row = mysqli_fetch_assoc($result);
         //Get the column corresponding to the password of the user. This gets and stores the hashed password.
         $HashedPassword = $row['Password'];
+        $EmailConfirmation = $row['emailactivation'];
 
         //Do verification here.
-        if(password_verify($user_password, $HashedPassword)){
-           echo "successful";
+        if(password_verify($user_password, $HashedPassword) && ($EmailConfirmation=='1')){
             $_SESSION['username'] = $user_name;//Initializing session
             // DashBoard
             Redirect_to("../../backend/pages/dashboard.php");
         }
-        else{
+        elseif(password_verify($user_password, $HashedPassword) && ($EmailConfirmation=='0')){
             echo "<div class='form'>
-            <h3>Username/password is incorrect.</h3>
+            <h3>Account is yet to be activated.</h3>
             <br/>Click here to <a href='../../login.html'>Login</a></div>";
         }
-    }
-else{
-    echo "No User found";
+        else{
+            echo "<div class='form'>
+            <h3>Username/Password is incorrect.</h3>
+            <br/>Click here to <a href='../../login.html'>Login</a></div>";
+        }
 
-}
+        }
+else{
+    echo "<div class='form'>
+            <h3>No User Found.</h3>
+            <br/>Click here to <a href='../../register.html'>Register</a></div>";
+   }
 }

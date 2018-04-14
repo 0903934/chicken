@@ -42,7 +42,6 @@
 
         <header class="major">
             <h2>Message Sent.</h2>
-            <p></p>
         </header>
 
         <section id="three" class="wrapper style3 special">
