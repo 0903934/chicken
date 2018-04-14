@@ -1,10 +1,15 @@
-
 <?php
+//Contains functions for page Re-directions.
+require_once($_SERVER["DOCUMENT_ROOT"] . "/backend/resources/functions.php");
 
-require($_SERVER["DOCUMENT_ROOT"] . "/backend/resources/functions.php");
-require($_SERVER["DOCUMENT_ROOT"]."/backend/resources/db.php");
+//Contains Database connection info.
+require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/db.php");
 
-session_start();
+//Contains session info
+require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
+
+
+
 // If form submitted, insert values into the database.
 if (isset($_POST['username'])){
     // removes backslashes

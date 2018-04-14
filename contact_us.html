@@ -46,33 +46,37 @@
 					</header>
 
 					<section id="three" class="wrapper style3 special">
-				<div class="container">
-					<header class="major">
-						<h2>Have a Question?</h2>
-						<p>Let us know below and we'll respond as soon as we can!</p>
-					</header>
-				</div>
-				<div class="container 50%">
-					<form action="#" method="post">
-						<div class="row uniform">
-							<div class="6u 12u$(small)">
-								<input name="name" id="name" value="" placeholder="Name" type="text">
-							</div>
-							<div class="6u$ 12u$(small)">
-								<input name="email" id="email" value="" placeholder="Email" type="email">
-							</div>
-							<div class="12u$">
-								<textarea name="message" id="message" placeholder="Message" rows="6"></textarea>
-							</div>
-							<div class="12u$">
-								<ul class="actions">
-									<li><input value="Send Message" class="special big" type="submit"></li>
-								</ul>
-							</div>
-						</div>
-					</form>
+                    <div class="container">
+                        <header class="major">
+                            <h2>Have a Question?</h2>
+                            <p>Let us know below. Please fill in all fields and we'll respond as soon as we can!</p>
+                        </header>
+                    </div>
+
+
+                    <div class="container 50%">
+                        <form action="backend/logic/ContactUsFormHandler.php" method="post">
+
+                            <div class="row uniform">
+                                <div class="6u 12u$(small)">
+                                    <input name="Name" id="name" placeholder="Full Name" type="text">
+                                </div>
+                                <div class="6u$ 12u$(small)">
+                                    <input name="Email" id="email" placeholder="Email Address" type="email">
+                                </div>
+                                <div class="12u$">
+                                    <textarea name="Message" id="message" placeholder="The Message"></textarea>
+                                </div>
+                                <div class="12u$">
+                                    <ul class="actions">
+                                        <li><input value="Send Message" class="special big" type="submit" name="Submit"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+			        </section>
 				</div>
 			</section>
-
 	</body>
 </html>
