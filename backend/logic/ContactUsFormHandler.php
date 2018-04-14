@@ -108,5 +108,7 @@ if(isset($_REQUEST['Submit'])){
         }
    }
 
+Util::redirect('/apps/content/');
+
 Redirect_to('../../thankyou_response_contact_form.html');
 

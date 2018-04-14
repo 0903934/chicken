@@ -29,7 +29,7 @@
 					<ul>
 						<li><a href="index.html">Home</a></li>
 						<li><a href="how_it_works.html">How it Works</a></li>
-						<li><a href="contact_us.html">Contact Us</a></li>
+						<li><a href="contact_us.php">Contact Us</a></li>
 						<li><a href="login.html" class="button special">Login</a></li>
 						<li><a href="register.html" class="button special">Register</a></li>
 					</ul>
@@ -55,7 +55,7 @@
 
 
                     <div class="container 50%">
-                        <form action="backend/logic/ContactUsFormHandler.php" method="post">
+                        <form action="backend/logic/ContactUsFormHandler.php" method="post" name="contact">
 
                             <div class="row uniform">
                                 <div class="6u 12u$(small)">
