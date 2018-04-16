@@ -33,8 +33,8 @@ if  ($method == 'POST') {
     $headers = apache_request_headers();
     if(isset($headers['Authorization'])){
         if (preg_match('/Bearer\s(\S+)/', $headers['Authorization'], $matches)) {
-            print_r(JWT::decode($matches[1], $key, array('HS256')));
-
+            //print_r(JWT::decode($matches[1], $key, array('HS256')));
+            echo $matches[1];
             exit(0);
         } else {
             http_response_code(401);
