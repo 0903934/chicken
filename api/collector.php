@@ -9,8 +9,12 @@
  */
 
 include_once "../backend/resources/db.php";
-require_once "php-jwt/src/JWT.php";
-$jwt = new JWT();
+require_once 'php-jwt/src/BeforeValidException.php';
+require_once 'php-jwt/src/ExpiredException.php';
+require_once 'php-jwt/src/SignatureInvalidException.php';
+require_once 'php-jwt/src/JWT.php';
+
+use \Firebase\JWT\JWT;
 
 // set header content type to be JSON
 header('Content-Type: application/json; charset=utf-8');
@@ -34,7 +38,7 @@ if  ($method == 'POST') {
     if(isset($headers['Authorization'])){
         if (preg_match('/Bearer\s(\S+)/', $headers['Authorization'], $matches)) {
             try {
-                jwt::decode($matches[1], $key, array('HS256'));
+                JWT::decode($matches[1], $key, array('HS256'));
             }catch(Exception $e) {
                 echo 'Message: ' .$e->getMessage();
                 exit(0);
