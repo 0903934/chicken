@@ -27,7 +27,8 @@ $token = array(
 );
 $jwt = JWT::encode($token, $key);
 $decoded = JWT::decode($jwt, $key, array('HS256'));
-// end test
+print_r($decoded);
+exit(0);
 
 // set header content type to be JSON
 header('Content-Type: application/json; charset=utf-8');
