@@ -26,6 +26,7 @@ $token = array(
     "nbf" => 1357000000
 );
 $jwt = JWT::encode($token, $key);
+$decoded = JWT::decode($jwt, $key, array('HS256'));
 // end test
 
 // set header content type to be JSON
@@ -45,29 +46,29 @@ if  ($method == 'POST') {
 
     // authenticate
     //$key = "secretT0Ken";
+
     // get the headers form the request
-    $headers = apache_request_headers();
-    if(isset($headers['Authorization'])){
-        if (preg_match('/Bearer\s(\S+)/', $headers['Authorization'], $matches)) {
-            try {
-                //JWT::decode($matches[1], $key, array('HS256'));
-                $decoded = JWT::decode($jwt, $key, array('HS256'));
-            }catch(Exception $e) {
-                echo 'Message: ' .$e->getMessage();
-                exit(0);
-            }
-            echo $decoded;
-            exit(0);
-        } else {
-            http_response_code(401);
-            echo '{"data": {"error": "Authentication Failed"}}';
-            exit(0);
-        }
-    } else {
-        http_response_code(401);
-        echo '{"data": {"error": "No auth token found"}}';
-        exit(0);
-    }
+//    $headers = apache_request_headers();
+//    if(isset($headers['Authorization'])){
+//        if (preg_match('/Bearer\s(\S+)/', $headers['Authorization'], $matches)) {
+//            try {
+//                JWT::decode($matches[1], $key, array('HS256'));
+//            }catch(Exception $e) {
+//                echo 'Message: ' .$e->getMessage();
+//                exit(0);
+//            }
+//            echo $decoded;
+//            exit(0);
+//        } else {
+//            http_response_code(401);
+//            echo '{"data": {"error": "Authentication Failed"}}';
+//            exit(0);
+//        }
+//    } else {
+//        http_response_code(401);
+//        echo '{"data": {"error": "No auth token found"}}';
+//        exit(0);
+//    }
 
     if (isset($_POST['CameraId'])) {
         $camera_id_raw = $_POST['CameraId'];
