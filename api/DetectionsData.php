@@ -37,7 +37,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 
 
-    //Gettingdatabase details for Azure to be sent along with the json file.
+    //Getting database details for Azure to be sent along with the json file.
     // set db mane
     $db_name = 'predatordetection';
 
@@ -65,7 +65,7 @@ $method = $_SERVER['REQUEST_METHOD'];
         $sql_details = array(
             'user' => $AZusername,
             'pass' => $AZpassword,
-            'db' => $AZdbname,
+            'db' => $db_name,
             'host' => $AZhostname
         );
 
