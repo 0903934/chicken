@@ -109,7 +109,7 @@ if (isset($_REQUEST['username'])) {
 
 
                     echo "<div class='form'>
-                    <h3>Registration Successfull. An activation email has been sent to you.</h3>
+                    <h3>Registration Successful. An activation email has been sent to you.</h3>
                     <br/>Click here to:  <a class='button'  href='../../login.html'>Login</a></div>";
                     mysqli_stmt_close($stmt);
                     // Close the connection

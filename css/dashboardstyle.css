@@ -1,0 +1,109 @@
+
+
+
+body{
+    background-color: #2f4050;
+}
+
+.col-sm-10{
+    background-color: #ffffff;
+}
+
+#side_menu a{
+    color: #9fb1c2;
+}
+
+#side_menu .active{
+    color: #ffffff;
+    background-color: #27AAE1;
+    font-weight: bold;
+}
+
+#side_menu a:hover{
+    color: #ffffff;
+    background-color: #1ab394;
+    font-weight: bold;
+    display: block;
+}
+
+#Footer{
+    padding:10px;
+    border-top: 1px solid black;
+    color:#eeeeee;
+    background-color: #211f22;
+    text-align: center;
+}
+
+.FieldInfo{
+    color: rgb(251, 174, 44);
+    font-family:Bitter, Georgia,"Times New Roman", SansSeriferif;
+    font-size: 1.2em;
+
+}
+
+
+
+
+.navbar-nav li{
+    font-weight: bold;
+    font-family:Bitter, serif, Georgia, serif, "Times New Roman", serif;
+    font-size: 1.2em;
+}
+
+nav>div>ul>li a{
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 10px 30px;
+    text-decoration: none;
+}
+
+
+nav>div>ul>li a:hover{
+    color: #363636;
+    background-color: #e7e7e7;
+}
+
+nav>div>ul>li {
+    border-right: 1px solid #bbb;
+}
+
+nav>div>ul>li:last-child {
+    border-right: none;
+}
+
+
+nav>div>ul {
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+nav>div>ul>li a {
+    color: #666;
+}
+
+
+
+.active {
+    background-color: #9fb1c2;
+
+}
+
+
+.CommentBlock{
+    background-color: #F6F7F9;
+}
+
+.Comment-Info{
+    color: #365899;
+    font-family: sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.Comment{
+    margin-top: -20px;
+    padding-bottom: 10px;
+    font-size: 1.1em;
+}
