@@ -9,6 +9,8 @@
  */
 
 include_once "../backend/resources/db.php";
+use \Firebase\JWT\JWT;
+
 
 // set header content type to be JSON
 header('Content-Type: application/json; charset=utf-8');
@@ -18,13 +20,26 @@ header('Content-Type: application/json; charset=utf-8');
 $method = $_SERVER['REQUEST_METHOD'];
 
 if  ($method == 'POST') {
-    // TODO: secure API
-    // post data to db; not going to authenticate yet. need to add strip tags and mysql security
+    // post data to db
     // get the data from the post data
 
     //Attempt to decode the incoming RAW post data from JSON.
     $rest_json = file_get_contents("php://input");
     $_POST = json_decode($rest_json, true);
+
+    // authenticate
+    $key = "secretT0Ken";
+    $headers = apache_request_headers();
+    if(isset($headers['Authorization'])){
+        if (preg_match('/Bearer\s(\S+)/', $headers['Authorization'], $matches)) {
+            echo (array) \Firebase\JWT\JWT::decode($matches[1], $key, array('HS256'));
+            exit(0);
+        }
+    } else {
+        http_response_code(401);
+        echo '{"data": {"error": "No auth token found"}}';
+        exit(0);
+    }
 
     if (isset($_POST['CameraId'])) {
         $camera_id_raw = $_POST['CameraId'];
