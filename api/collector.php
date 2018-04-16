@@ -8,6 +8,7 @@
  * Very simple API interface to collect data from the remote node
  */
 
+// import everything for jwt
 include_once "../backend/resources/db.php";
 require_once 'php-jwt/src/BeforeValidException.php';
 require_once 'php-jwt/src/ExpiredException.php';
@@ -15,6 +16,17 @@ require_once 'php-jwt/src/SignatureInvalidException.php';
 require_once 'php-jwt/src/JWT.php';
 
 use \Firebase\JWT\JWT;
+
+// for now, we will just do jwt here before moving to the remote
+$key = "example_key";
+$token = array(
+    "iss" => "http://example.org",
+    "aud" => "http://example.com",
+    "iat" => 1356999524,
+    "nbf" => 1357000000
+);
+$jwt = JWT::encode($token, $key);
+// end test
 
 // set header content type to be JSON
 header('Content-Type: application/json; charset=utf-8');
@@ -32,18 +44,19 @@ if  ($method == 'POST') {
     $_POST = json_decode($rest_json, true);
 
     // authenticate
-    $key = "secretT0Ken";
+    //$key = "secretT0Ken";
     // get the headers form the request
     $headers = apache_request_headers();
     if(isset($headers['Authorization'])){
         if (preg_match('/Bearer\s(\S+)/', $headers['Authorization'], $matches)) {
             try {
-                JWT::decode($matches[1], $key, array('HS256'));
+                //JWT::decode($matches[1], $key, array('HS256'));
+                $decoded = JWT::decode($jwt, $key, array('HS256'));
             }catch(Exception $e) {
                 echo 'Message: ' .$e->getMessage();
                 exit(0);
             }
-            echo $matches[1];
+            echo $decoded;
             exit(0);
         } else {
             http_response_code(401);
