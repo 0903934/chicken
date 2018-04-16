@@ -32,13 +32,14 @@ if  ($method == 'POST') {
     // get the headers form the request
     $headers = apache_request_headers();
     if(isset($headers['Authorization'])){
-        //echo (array) \Firebase\JWT\JWT::decode($matches[1], $key, array('HS256'));
-        echo $headers['Authorization'];
-        exit(0);
-//        if (preg_match('/Bearer\s(\S+)/', $headers['Authorization'], $matches)) {
-//            echo (array) \Firebase\JWT\JWT::decode($matches[1], $key, array('HS256'));
-//            exit(0);
-//        }
+        if (preg_match('/Bearer\s(\S+)/', $headers['Authorization'], $matches)) {
+            echo (array) \Firebase\JWT\JWT::decode($matches[1], $key, array('HS256'));
+            exit(0);
+        } else {
+            http_response_code(401);
+            echo '{"data": {"error": "Authentication Failed"}}';
+            exit(0);
+        }
     } else {
         http_response_code(401);
         echo '{"data": {"error": "No auth token found"}}';
