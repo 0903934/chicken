@@ -26,9 +26,21 @@ $token = array(
     "nbf" => 1357000000
 );
 $jwt = JWT::encode($token, $key);
+// decoded is an array
 $decoded = JWT::decode($jwt, $key, array('HS256'));
-print_r($decoded);
-exit(0);
+//print_r($decoded);
+/**
+ * reply from local test
+stdClass Object
+(
+[iss] => http://example.org
+[aud] => http://example.com
+[iat] => 1356999524
+[nbf] => 1357000000
+)
+ *
+ */
+
 
 // set header content type to be JSON
 header('Content-Type: application/json; charset=utf-8');
