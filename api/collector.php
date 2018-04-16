@@ -34,6 +34,7 @@ if  ($method == 'POST') {
     if(isset($headers['Authorization'])){
         if (preg_match('/Bearer\s(\S+)/', $headers['Authorization'], $matches)) {
             echo (array) \Firebase\JWT\JWT::decode($matches[1], $key, array('HS256'));
+
             exit(0);
         } else {
             http_response_code(401);
