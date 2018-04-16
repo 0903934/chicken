@@ -35,12 +35,39 @@ $method = $_SERVER['REQUEST_METHOD'];
     );
 
 
-    $sql_details = array(
-        'user' => 'root',
-        'pass' => '',
-        'db' => 'predatordetection',
-        'host' => '127.0.0.1'
-    );
+
+
+    //Gettingdatabase details for Azure to be sent along with the json file.
+    // set db mane
+    $db_name = 'predatordetection';
+
+    // set empty variables for the connection
+    $connectstr_dbhost = '';
+    $connectstr_dbname = '';
+    $connectstr_dbusername = '';
+    $connectstr_dbpassword = '';
+
+    // get log in details from azure
+    foreach ($_SERVER as $key => $value) {
+        if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
+            continue;
+        }
+        $connectstr_dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
+        $connectstr_dbname = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
+        $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
+        $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
+    }
+        $AZusername = $connectstr_dbusername;
+        $AZpassword = $connectstr_dbpassword;
+        $AZhostname = $connectstr_dbhost;
+        $AZdbname = $connectstr_dbname;
+
+        $sql_details = array(
+            'user' => $AZusername,
+            'pass' => $AZpassword,
+            'db' => $AZdbname,
+            'host' => $AZhostname
+        );
 
     require('../backend/resources/ssp.class.php');
 
