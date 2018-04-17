@@ -128,7 +128,7 @@ if  ($method == 'POST') {
     }
 } else {
     // reply 404 for GETs currently
-    http_response_code(404);
-    echo '{"data": {"error": "Content not Found"}}';
+    http_response_code(405);
+    echo '{"data": {"error": "Method not allowed"}}';
     exit(0);
 }
