@@ -128,6 +128,8 @@ if (isset($_REQUEST['username'])) {
             }
     else {
         Redirect_to('../../index.html');
+        //Better to echo errors for debugging purpose only
+        //echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
 }
 ?>
