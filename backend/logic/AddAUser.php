@@ -58,8 +58,8 @@ if (isset($_REQUEST['username'])) {
 
         $queryNewUser = "INSERT INTO users (UserName, Password, FirstName, LastName, Email, UserType, emailactivation, token, registrationdate) 
                           VALUES ('$user_name', '$user_password', '$firstname', '$lastname', '$email', '$usertype', '$EmailActivation', '$token', '$DateTime')";
-        $resultNewUser = mysqli_query($conn, $queryNewUser);
-        if (!mysqli_query($conn, $queryNewUser))
+        $resultNewUser = mysqli_query($conn, $queryNewUser) or die( 'Error: ' . mysqli_error($conn));
+        if (!mysqli_query($conn, $resultNewUser))
         {
             echo("Error description: " . mysqli_error($conn));
         }
@@ -129,7 +129,7 @@ if (isset($_REQUEST['username'])) {
                 }
             }
     else {
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        echo mysqli_connect_error();
         //Redirect_to('../../index.html');
     }
 }
