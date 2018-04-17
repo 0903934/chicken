@@ -58,12 +58,8 @@ if (isset($_REQUEST['username'])) {
 
         $queryNewUser = "INSERT INTO users (UserName, Password, FirstName, LastName, Email, UserType, emailactivation, token, registrationdate) 
                           VALUES ('$user_name', '$user_password', '$firstname', '$lastname', '$email', '$usertype', '$EmailActivation', '$token', '$DateTime')";
-        $resultNewUser = mysqli_query($conn, $queryNewUser) or die( 'Error: ' . mysqli_error($conn));
-        if (!mysqli_query($conn, $resultNewUser))
-        {
-            echo("Error description: " . mysqli_error($conn));
-        }
-        elseif ($resultNewUser) {
+        $resultNewUser = mysqli_query($conn, $queryNewUser);
+        if ($resultNewUser) {
                 //Send an Activation Email. We will use PHP Mailer to avoid our mails been filtered off as Spam.
                 include_once "../../backend/resources/PHPMailer/PHPMailer.php";
                 include_once "../../backend/resources/PHPMailer/Exception.php";
@@ -129,7 +125,7 @@ if (isset($_REQUEST['username'])) {
                 }
             }
     else {
-        echo mysqli_connect_error();
+        echo die( 'Error: ' . mysqli_error($conn));
         //Redirect_to('../../index.html');
     }
 }
