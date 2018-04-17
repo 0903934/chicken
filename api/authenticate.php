@@ -40,7 +40,7 @@ if  ($method == 'POST') {
             // log in good. Generate JWT and send to client
             http_response_code(200);
             $jwt = generateJWT($user_name);
-            echo '{"data": {"login": "Authentication good", "Token": ' . $jwt . '}}';
+            echo '{"data": {"login": "Authentication good", "Token": "' . $jwt . '"}}';
             exit(0);
         }
     } else {
