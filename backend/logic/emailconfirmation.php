@@ -8,6 +8,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/db.php");
 //Contains session info
 require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
 
+
 /**
  * Created by PhpStorm.
  * User: Temple
@@ -42,7 +43,6 @@ else{
             </div>";
         }
         else{
-            echo die('Failed to connect to MySQL: '.mysqli_connect_error());
-           // Redirect_to('../../index.html');
+            Redirect_to('../../index.html');
         }
     }
