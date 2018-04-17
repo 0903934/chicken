@@ -39,7 +39,7 @@ if  ($method == 'POST') {
         } else {
             // log in good. Generate JWT and send to client
             http_response_code(200);
-            $jwt = generateJWT($user_name);
+            $jwt = generateJWT($_SERVER['PHP_AUTH_USER']);
             echo '{"data": {"login": "Authentication good", "Token": "' . $jwt . '"}}';
             exit(0);
         }
@@ -96,7 +96,7 @@ function generateJWT($user_name){
     // get the timne now to add to the token
     $time_now = time();
     // hard code the secret key for now
-    $key = "example_key";
+    $key = "secret_key";
     // define token data
     $token = array(
         "iss" => "https://foxysnap.azurewebsites.net", // server name for who issued the token
