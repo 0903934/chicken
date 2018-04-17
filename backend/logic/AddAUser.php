@@ -8,11 +8,8 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/db.php");
 //Contains session info
 require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
 
-?>
 
-<?php
 
-global $conn;
 
 // Importing PHP Mailer namespace
 use PHPMailer\PHPMailer\PHPMailer;
@@ -21,6 +18,8 @@ use PHPMailer\PHPMailer\SMTP;
 
 // If form submitted, insert values into the database.
 if (isset($_REQUEST['username'])) {
+    global $conn;
+
     // removes backslashes
     $user_name = stripslashes($_REQUEST['username']);
     $user_name = mysqli_real_escape_string($conn, $user_name);
