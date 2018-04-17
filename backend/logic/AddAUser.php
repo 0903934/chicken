@@ -56,7 +56,7 @@ if (isset($_REQUEST['username'])) {
         $token = str_shuffle($token);
         $token = substr($token, 0, 10);
 
-        $queryNewUser = "INSERT INTO users (UserName, Password, FirstName, LastName, Email, UserType, emailactivation, token, registrationdate ) 
+        $queryNewUser = "INSERT INTO users (UserName, Password, FirstName, LastName, Email, UserType, emailactivation, token, registrationdate) 
                           VALUES ('$user_name', '$user_password', '$firstname', '$lastname', '$email', '$usertype', '$EmailActivation', '$token', '$DateTime')";
         $resultNewUser = mysqli_query($conn, $queryNewUser);
         if ($resultNewUser) {
@@ -125,7 +125,7 @@ if (isset($_REQUEST['username'])) {
                 }
             }
     else {
-           echo die('Failed to connect to MySQL: '.mysqli_connect_error());
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
         //Redirect_to('../../index.html');
     }
 }
