@@ -11,6 +11,9 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
 ?>
 
 <?php
+
+global $conn;
+
 // Importing PHP Mailer namespace
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
