@@ -26,7 +26,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
     <!--My Style Sheets -->
     <link rel="stylesheet" href="../../css/dashboardstyle.css">
 
-    <title>Admin Dashboard</title>
+    <title>Foxy Snap</title>
 
 </head>
 
@@ -41,6 +41,13 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.2.1/dt-1.10.16/datatables.min.css"/>
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.2.1/dt-1.10.16/datatables.min.js"></script>
 
+<style>
+    body{
+        background-color: #2f4050;
+    }
+
+</style>
+
 
 <body>
 
@@ -48,12 +55,17 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
     <div class="row">  <!--Beginning of rows -->
 
         <!--Beginning of page side panel area -->
-        <div class="col-sm-2 sidenav" >
-            <p>Welcome <?php echo $_SESSION['username']; ?>!</p>
-            <p>Dashboard</p>
-            <p>This is a secure area.</p>
-            <p><a href="../../index.html">Home</a></p>
-            <p><a href="../logic/logout.php">Logout</a></p>
+        <div class="col-sm-2" id="Side_Menu" >
+            <div id="welcome">
+                <p>Welcome <?php echo $_SESSION['username']; ?>!</p>
+                <p>Dashboard</p>
+            </div>
+
+            <div id="Side_Menu_links">
+                <p><a class="button" href="../../index.html">Home</a></p>
+                <p><a class="button"href="../logic/logout.php">Logout</a></p>
+            </div>
+
         </div>
         <!--Ending of page side panel area -->
 
@@ -68,23 +80,23 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
                     <thead>
                         <tr>
                             <th>Id.</th>
-                            <th>CameraId</th>
-                            <th>PredatorName</th>
-                            <th>DetectionAccuracy</th>
-                            <th>PredatorImage</th>
-                            <th>DetectionTime</th>
+                            <th>Camera Id</th>
+                            <th>Predator Name</th>
+                            <th>Detection Accuracy(%)</th>
+                            <th>Predator Image</th>
+                            <th>Detection Time</th>
                         </tr>
                     </thead>
 
                     <tfoot>
-                        <tr>
-                            <th>Id</th>
-                            <th>Camera Id</th>
-                            <th>Predator Name</th>
-                            <th>Detection Accuracy</th>
-                            <th>Predator Image(%)</th>
-                            <th>Detection Time</th>
-                        </tr>
+                    <tr>
+                        <th>Id.</th>
+                        <th>Camera Id</th>
+                        <th>Predator Name</th>
+                        <th>Detection Accuracy(%)</th>
+                        <th>Predator Image</th>
+                        <th>Detection Time</th>
+                    </tr>
 
                     </tfoot>
 
@@ -129,6 +141,8 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
                         </script>
             </div>
 
+            <div class="popup" onclick="myFunction()"></div>
+
 
         </div>  <!--Ending of rows -->
 
@@ -139,12 +153,12 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
 <div id="Footer">
 
     <hr>
-    <p> Designed by | Temple Okosun | &copy;2018-2020 --- All rights reserved.</p>
+    <p> Designed by | Group D | &copy;2018-2020 --- All rights reserved.</p>
     <a style="color: white; text-decoration: none; cursor: pointer; font-weight: bold;" href="https://www.rgu.ac.uk">
         <p>
-            This site is an assessed project for the Web Development Module in the M.Sc.
+            This site is an assessed group project for the Software Engineering Module in the M.Sc.
             IT program at Robert Gordon University Aberdeen. No one is allowed copies other than <br>
-            &trade; Robert Gordon University Aberdeen, &trade; learnITCMSblog.com
+            &trade; Robert Gordon University Aberdeen, &trade; Group Members: Stuart Cossar, Temple Okosun, Ejiro Okogu, Peter Clarke, Muhammed Aljuwaiser.
         </p>
     </a>
     <hr>
