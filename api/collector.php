@@ -10,37 +10,6 @@
 
 // import everything for jwt
 include_once "../backend/resources/db.php";
-require_once 'php-jwt/src/BeforeValidException.php';
-require_once 'php-jwt/src/ExpiredException.php';
-require_once 'php-jwt/src/SignatureInvalidException.php';
-require_once 'php-jwt/src/JWT.php';
-
-use \Firebase\JWT\JWT;
-
-// for now, we will just do jwt here before moving to the remote
-$key = "example_key";
-$token = array(
-    "iss" => "http://example.org",
-    "aud" => "http://example.com",
-    "iat" => 1356999524,
-    "nbf" => 1357000000
-);
-$jwt = JWT::encode($token, $key);
-// decoded is an array
-$decoded = JWT::decode($jwt, $key, array('HS256'));
-//print_r($decoded);
-/**
- * reply from local test
-stdClass Object
-(
-[iss] => http://example.org
-[aud] => http://example.com
-[iat] => 1356999524
-[nbf] => 1357000000
-)
- *
- */
-
 
 // set header content type to be JSON
 header('Content-Type: application/json; charset=utf-8');

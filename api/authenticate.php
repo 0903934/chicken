@@ -9,6 +9,13 @@
  * a JWT token
  */
 
+// import everything for jwt
+require_once 'php-jwt/src/BeforeValidException.php';
+require_once 'php-jwt/src/ExpiredException.php';
+require_once 'php-jwt/src/SignatureInvalidException.php';
+require_once 'php-jwt/src/JWT.php';
+use \Firebase\JWT\JWT;
+
 // set header content type to be JSON
 header('Content-Type: application/json; charset=utf-8');
 
@@ -32,7 +39,8 @@ if  ($method == 'POST') {
         } else {
             // log in good. Generate JWT and send to client
             http_response_code(200);
-            echo '{"data": {"login": "Authentication good"}}';
+            $jwt = generateJWT($user_name);
+            echo '{"data": {"login": "Authentication good", "Token": ' . $jwt . '}}';
             exit(0);
         }
     } else {
@@ -81,4 +89,29 @@ function checkLoginApi($user, $password){
         // user not found. return false
         return false;
     }
+}
+
+function generateJWT($user_name){
+
+    // get the timne now to add to the token
+    $time_now = time();
+    // hard code the secret key for now
+    $key = "example_key";
+    // define token data
+    $token = array(
+        "iss" => "https://foxysnap.azurewebsites.net", // server name for who issued the token
+        "iat" => $time_now, // time issued at
+        "nbf" => $time_now, // time not before
+        "exp" => $time_now  + 60, // token expires now plus 1 minute
+        "data" => ["user_name" => $user_name] // add user name so we can identify
+    );
+
+    // encode the token
+    $jwt = JWT::encode($token, $key, 'HS256');
+    // decoded is an array
+    // $decoded = JWT::decode($jwt, $key, array('HS256'));
+    //print_r($decoded);
+
+    // return the token
+    return $jwt;
 }
