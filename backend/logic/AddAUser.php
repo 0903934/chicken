@@ -126,7 +126,9 @@ if (isset($_REQUEST['username'])) {
                 }
             }
     else {
-        Redirect_to('../../index.html');
+           echo die('Failed to connect to MySQL: '.mysqli_connect_error());
+
+        //Redirect_to('../../index.html');
     }
 }
 ?>
