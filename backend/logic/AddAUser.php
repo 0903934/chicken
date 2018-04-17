@@ -9,8 +9,6 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/db.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
 
 
-
-
 // Importing PHP Mailer namespace
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -18,8 +16,8 @@ use PHPMailer\PHPMailer\SMTP;
 
 // If form submitted, insert values into the database.
 if (isset($_REQUEST['username'])) {
-    global $conn;
 
+    global $conn;
     // removes backslashes
     $user_name = stripslashes($_REQUEST['username']);
     $user_name = mysqli_real_escape_string($conn, $user_name);
@@ -58,15 +56,16 @@ if (isset($_REQUEST['username'])) {
         $token = str_shuffle($token);
         $token = substr($token, 0, 10);
 
-        $stmt = mysqli_prepare($conn, "INSERT INTO users (UserName, Password, FirstName, LastName, Email, UserType, emailactivation, token, registrationdate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        mysqli_stmt_bind_param($stmt, 'sssssssss', $user_name, $user_password, $firstname, $lastname, $email, $usertype, $EmailActivation, $token, $DateTime);
-        $result = mysqli_stmt_execute($stmt);
-        if ($result) {
+        $queryNewUser = "INSERT INTO users (UserName, Password, FirstName, LastName, Email, UserType, emailactivation, token, registrationdate ) 
+                          VALUES ('$user_name', '$user_password', '$firstname', '$lastname', '$email', '$usertype', '$EmailActivation', '$token', '$DateTime')";
+        $resultNewUser = mysqli_query($conn, $queryNewUser);
+        if ($resultNewUser) {
                 //Send an Activation Email. We will use PHP Mailer to avoid our mails been filtered off as Spam.
                 include_once "../../backend/resources/PHPMailer/PHPMailer.php";
                 include_once "../../backend/resources/PHPMailer/Exception.php";
                 include_once "../../backend/resources/PHPMailer/SMTP.php";
 
+                //$base_url = "http://localhost:63342/chicken/backend/logic/";
                 $base_url = "https://foxysnap.azurewebsites.net/backend/logic/";
                 $mail= new PHPMailer(true);
                 try {
@@ -113,7 +112,6 @@ if (isset($_REQUEST['username'])) {
                     echo "<div class='form'>
                     <h3>Registration Successful. An activation email has been sent to you.</h3>
                     <br/>Click here to:  <a class='button'  href='../../login.html'>Login</a></div>";
-                    mysqli_stmt_close($stmt);
                     // Close the connection
                     mysqli_close($conn);
                 }
@@ -121,7 +119,6 @@ if (isset($_REQUEST['username'])) {
                     echo "<div class='form'>
                     <h3>OOPs! Something went wrong. Please try again.</h3>
                     <br/>Click here to <a class='button'  href='../../register.html'>Register</a></div>";
-                    mysqli_stmt_close($stmt);
                     // Close the connection
                     mysqli_close($conn);
 
@@ -129,7 +126,6 @@ if (isset($_REQUEST['username'])) {
             }
     else {
            echo die('Failed to connect to MySQL: '.mysqli_connect_error());
-
         //Redirect_to('../../index.html');
     }
 }
