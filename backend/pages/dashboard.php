@@ -150,7 +150,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
                                             {"data": "DetectionAccuracy"},
                                             {"data": "PredatorImage", "render": function ( data, type, row, meta ) {
                                                     if(type === 'display'){
-                                                        data = '<a href="'+ data + '"  target="_blank>' + data + '</a>';
+                                                        data = '<a href="'+ data + '" target="_blank">' + data + '</a>';
                                                     }
 
                                                     return data;
