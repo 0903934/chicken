@@ -73,7 +73,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
             <div id="Side_Menu_links">
                 <p><a class="button special active" href="dashboard.php">Dashboard</a></p>
                 <p><a class="button" href="../../index.html">Home</a></p>
-                <p><a class="button"href="../logic/logout.php">Logout</a></p>
+                <p><a class="button" href="../logic/logout.php">Logout</a></p>
             </div>
 
         </div>
@@ -91,7 +91,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
                 <span class="close">&times;</span>
 
                 <!-- Modal Content (The Image) -->
-                <img class="modal-content" id="img01">
+
 
                 <!-- Modal Caption (Image Text) -->
                 <div id="caption"></div>
@@ -162,7 +162,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
                                     });
                                 setInterval( function () {
                                     table.ajax.reload( null, false ); // user paging is not reset on reload
-                                }, 30000 );
+                                }, 1000 );
                             });
 
 
