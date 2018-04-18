@@ -142,7 +142,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
                                         "processing": false,
                                         "serverSide":true,
                                         "ajax": "../../api/DetectionsData.php",
-                                        "order": [[0, desc]]
+                                        "order": [[0, desc]],
                                         "columns": [
                                             {"data": "id"},
                                             {"data": "CameraId"},
