@@ -183,7 +183,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
     <p> Designed by | Group D | &copy;2018-2020 --- All rights reserved.</p>
     <a style="color: white; text-decoration: none; cursor: pointer; font-weight: bold;" href="https://www.rgu.ac.uk">
         <p>
-            This site is an assessed group project for the Software Engineering Module in the M.Sc.
+            This application is an assessed group project for the Software Engineering Module in the M.Sc.
             IT program at Robert Gordon University Aberdeen. No one is allowed copies other than <br>
             &trade; Robert Gordon University Aberdeen, &trade; Group Members: Stuart Cossar, Temple Okosun, Ejiro Okogu, Peter Clarke, Muhammed Aljuwaiser.
         </p>
