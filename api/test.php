@@ -32,11 +32,13 @@ if  ($method == 'POST') {
         if (preg_match('/Bearer\s(\S+)/', $headers['Authorization'], $matches)) {
             try {
                 $decoded = JWT::decode($matches[1], $key, array('HS256'));
-                echo $decoded;
+                http_response_code(200);
+                echo '{"data": {"Success": "Token Good"}}';
                 exit(0);
             } catch (\Firebase\JWT\ExpiredException $e) {
                 http_response_code(401);
                 echo '{"data": {"error": "Token Expired", "message": "' . $e->getMessage() . '"" }}';
+                exit(0);
             } catch (Exception $e) {
                 http_response_code(500);
                 echo '{"data": {"error": "Error", "message": "' . $e->getMessage() . '"" }}';
@@ -52,4 +54,9 @@ if  ($method == 'POST') {
         echo '{"data": {"error": "No auth token found"}}';
         exit(0);
     }
+} else {
+    // reply 404 for GETs currently
+    http_response_code(405);
+    echo '{"data": {"error": "Method not allowed"}}';
+    exit(0);
 }
