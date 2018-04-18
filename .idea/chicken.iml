@@ -5,14 +5,21 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
-      <library name="PHP Runtime" type="php">
+      <library name="PHP" type="php">
         <CLASSES>
-          <root url="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard" />
+          <root url="file://C:/xampp/php/pear" />
         </CLASSES>
         <SOURCES>
-          <root url="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard" />
+          <root url="file://C:/xampp/php/pear" />
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="datatables" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="jquery-3.2.1.slim" level="application" />
+    <orderEntry type="library" name="jquery-3.3.1.slim" level="application" />
+    <orderEntry type="library" name="popper" level="application" />
+    <orderEntry type="library" name="jquery.modal" level="application" />
   </component>
 </module>

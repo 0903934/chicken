@@ -41,6 +41,15 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.2.1/dt-1.10.16/datatables.min.css"/>
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.2.1/dt-1.10.16/datatables.min.js"></script>
 
+<!-- jQuery :) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+
+
 <style>
     body{
         background-color: #2f4050;
@@ -50,6 +59,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
 
 
 <body>
+<div style="height: 10px; background: #27AAE1; "></div>
 
 <div class="container-fluid">  <!--Beginning of bootstrap page Container -->
     <div class="row">  <!--Beginning of rows -->
@@ -58,10 +68,10 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
         <div class="col-sm-2" id="Side_Menu" >
             <div id="welcome">
                 <p>Welcome <?php echo $_SESSION['username']; ?>!</p>
-                <p>Dashboard</p>
             </div>
 
             <div id="Side_Menu_links">
+                <p><a class="button special active" href="dashboard.php">Dashboard</a></p>
                 <p><a class="button" href="../../index.html">Home</a></p>
                 <p><a class="button"href="../logic/logout.php">Logout</a></p>
             </div>
@@ -72,9 +82,24 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
         <!--Beginning of main  area -->
         <div class="col-sm-10">
             <h1>Detection Report</h1>
+
+            <!-- Modal -->
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- The Close Button -->
+                <span class="close">&times;</span>
+
+                <!-- Modal Content (The Image) -->
+                <img class="modal-content" id="img01">
+
+                <!-- Modal Caption (Image Text) -->
+                <div id="caption"></div>
+            </div>
+            <!-- Modal -->
+
             <!-- Outputting all the contents in the Users table -->
             <div class="table-responsive">
-
                     <!--Getting all the records from the database to form rows on the table. -->
                     <table id="detection-table" class="display">
                     <thead>
@@ -88,6 +113,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
                         </tr>
                     </thead>
 
+
                     <tfoot>
                     <tr>
                         <th>Id.</th>
@@ -99,6 +125,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
                     </tr>
 
                     </tfoot>
+
 
                     <tbody>
 
@@ -122,7 +149,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
                                             {"data": "DetectionAccuracy"},
                                             {"data": "PredatorImage", "render": function ( data, type, row, meta ) {
                                                     if(type === 'display'){
-                                                        data = '<a class="link-image" href="'+ data + '">' + data + '</a>';
+                                                        data = '<a href="'+ data + '">' + data + '</a>';
                                                     }
 
                                                     return data;
@@ -135,14 +162,13 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
                                 setInterval( function () {
                                     table.ajax.reload( null, false ); // user paging is not reset on reload
                                 }, 30000 );
-
-
                             });
+
+
                         </script>
             </div>
 
-            <div class="popup" onclick="myFunction()"></div>
-
+        </div>
 
         </div>  <!--Ending of rows -->
 
