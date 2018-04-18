@@ -33,7 +33,7 @@ if  ($method == 'POST') {
             try {
                 $decoded = JWT::decode($matches[1], $key, array('HS256'));
                 http_response_code(200);
-                echo '{"data": {"Success": "Token Good"}}';
+                echo '{"data": {"Success": "Token Good", "data": ' . json_encode($decoded) . '}}';
                 exit(0);
             } catch (\Firebase\JWT\ExpiredException $e) {
                 http_response_code(401);
