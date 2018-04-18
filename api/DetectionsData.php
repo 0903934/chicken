@@ -21,7 +21,7 @@ $method = $_SERVER['REQUEST_METHOD'];
     $table = 'detectionreport';
     $primaryKey = 'id';
 
-    $viewReport = "SELECT * FROM detectionreport ORDER BY id  ASC";
+    $viewReport = "SELECT * FROM detectionreport";
     $result = mysqli_query($conn, $viewReport);
     $columns = array();
 
