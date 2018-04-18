@@ -8,13 +8,16 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/backend/resources/db.php");
 //Contains session info
 require_once($_SERVER["DOCUMENT_ROOT"] . "/backend/resources/sessions.php");
 
-
 // get the method of the request (GET / POST etc.)
 $method = $_SERVER['REQUEST_METHOD'];
 
 ?>
 
+
+
 <?php
+
+if (isset($_SESSION['username'])) {
 
     global $conn;
 
@@ -33,8 +36,6 @@ $method = $_SERVER['REQUEST_METHOD'];
         array('db' => 'PredatorImage', 'dt' => 'PredatorImage'),
         array('db' => 'DetectionTime', 'dt' => 'DetectionTime')
     );
-
-
 
 
     //Getting database details for Azure to be sent along with the json file.
@@ -57,20 +58,25 @@ $method = $_SERVER['REQUEST_METHOD'];
         $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
         $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
     }
-        $AZusername = $connectstr_dbusername;
-        $AZpassword = $connectstr_dbpassword;
-        $AZhostname = $connectstr_dbhost;
-        $AZdbname = $connectstr_dbname;
+    $AZusername = $connectstr_dbusername;
+    $AZpassword = $connectstr_dbpassword;
+    $AZhostname = $connectstr_dbhost;
+    $AZdbname = $connectstr_dbname;
 
-        $sql_details = array(
-            'user' => $AZusername,
-            'pass' => $AZpassword,
-            'db' => $db_name,
-            'host' => $AZhostname
-        );
+    $sql_details = array(
+        'user' => $AZusername,
+        'pass' => $AZpassword,
+        'db' => $db_name,
+        'host' => $AZhostname
+    );
 
     require('../backend/resources/ssp.class.php');
 
     echo json_encode(
         SSP::simple($_GET, $sql_details, $table, $primaryKey, $columns)
     );
+}
+
+else{
+    echo "Unauthorized Access";
+}
