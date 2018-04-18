@@ -37,11 +37,11 @@ if  ($method == 'POST') {
                 exit(0);
             } catch (\Firebase\JWT\ExpiredException $e) {
                 http_response_code(401);
-                echo '{"data": {"error": "Token Expired", "message": "' . $e->getMessage() . '"" }}';
+                echo '{"data": {"error": "Token Expired", "message": "' . $e->getMessage() . '" }}';
                 exit(0);
             } catch (Exception $e) {
                 http_response_code(500);
-                echo '{"data": {"error": "Error", "message": "' . $e->getMessage() . '"" }}';
+                echo '{"data": {"error": "Error", "message": "' . $e->getMessage() . '" }}';
                 exit(0);
             }
         } else {
