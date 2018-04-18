@@ -83,21 +83,6 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
         <div class="col-sm-10">
             <h1>Detection Report</h1>
 
-            <!-- Modal -->
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-
-                <!-- The Close Button -->
-                <span class="close">&times;</span>
-
-                <!-- Modal Content (The Image) -->
-
-
-                <!-- Modal Caption (Image Text) -->
-                <div id="caption"></div>
-            </div>
-            <!-- Modal -->
-
             <!-- Outputting all the contents in the Users table -->
             <div class="table-responsive">
                     <!--Getting all the records from the database to form rows on the table. -->
@@ -123,7 +108,6 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
                         <th>Predator Image</th>
                         <th>Detection Time</th>
                     </tr>
-
                     </tfoot>
 
 
@@ -150,21 +134,18 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
                                             {"data": "DetectionAccuracy"},
                                             {"data": "PredatorImage", "render": function ( data, type, row, meta ) {
                                                     if(type === 'display'){
-                                                        data = '<a href="'+ data + '" target="_blank">' + data + '</a>';
-                                                    }
+                                                        data = '<a href="'+ data + '" target="_blank">' + data + '</a>';                                                    }
 
                                                     return data;
                                                 }
                                                 },
                                             {"data": "DetectionTime"}
                                         ]
-
                                     });
                                 setInterval( function () {
                                     table.ajax.reload( null, false ); // user paging is not reset on reload
                                 }, 1000 );
                             });
-
 
                         </script>
             </div>
@@ -173,8 +154,8 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
 
         </div>  <!--Ending of rows -->
 
-        </div>  <!--Ending of bootstrap page Container -->
-    </div>
+</div>  <!--Ending of bootstrap page Container -->
+
 
 <!--Footer Begins -->
 <div id="Footer">
@@ -183,7 +164,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/backend/resources/sessions.php");
     <p> Designed by | Group D | &copy;2018-2020 --- All rights reserved.</p>
     <a style="color: white; text-decoration: none; cursor: pointer; font-weight: bold;" href="https://www.rgu.ac.uk">
         <p>
-            This application is an assessed group project for the Software Engineering Module in the M.Sc.
+            Foxy Snap- Predator Detection System is an assessed group project for the Software Engineering Module in the M.Sc.
             IT program at Robert Gordon University Aberdeen. No one is allowed copies other than <br>
             &trade; Robert Gordon University Aberdeen, &trade; Group Members: Stuart Cossar, Temple Okosun, Ejiro Okogu, Peter Clarke, Muhammed Aljuwaiser.
         </p>
