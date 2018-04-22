@@ -60,6 +60,10 @@ if  ($method == 'POST') {
                 http_response_code(401);
                 echo '{"data": {"error": "Token Expired", "message": "' . $e->getMessage() . '" }}';
                 exit(0);
+            } catch (\Firebase\JWT\SignatureInvalidException $e) {
+                http_response_code(401);
+                echo '{"data": {"error": "Token Not Valid", "message": "' . $e->getMessage() . '" }}';
+                exit(0);
             } catch (Exception $e) {
                 http_response_code(500);
                 echo '{"data": {"error": "Error", "message": "' . $e->getMessage() . '" }}';
