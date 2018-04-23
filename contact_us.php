@@ -109,9 +109,6 @@
 								<li>
 									<a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
 								</li>
-							
-							</ul>
-						</div>
 					</div>
 				</div>
 			</footer>
