@@ -104,12 +104,14 @@
 						<div class="4u$ 12u$(medium)">
 							<ul class="icons">
 								<li>
-									<a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
+									<a href=https://www.facebook.com/foxysnaprgu/ class="icon rounded fa-facebook"></a>
 								</li>
 								<li>
-									<a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
+									<a href="https://twitter.com/foxysnapRGU" class="icon rounded fa-twitter"></a>
 								</li>
-				</div>
+							
+							</ul>
+						</div>
 			</footer>
 	</body>
 </html>
